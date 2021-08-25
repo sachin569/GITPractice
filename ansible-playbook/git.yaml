@@ -7,7 +7,7 @@
       state: latest
       - name: clone a git repo
           git: 
-            repo: https://github.com/shamshetty
+            repo: https://github.com/sachin569
             dest: /home/centos/repos/
             clone: yes
             update: yes
