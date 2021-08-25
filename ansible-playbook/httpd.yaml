@@ -1,0 +1,19 @@
+---
+ - hosts: webservers
+   tasks:
+   - name: Install httpd
+     yum:
+       name: httpd
+       state: present
+   - name: ensure httpd is running
+     service:
+       name: httpd 
+       state: started
+
+   - name: copy file with owner and permissions
+     ansible.builtin.copy:
+       src: /home/ansible/playbook-aj/ansible-playbooks-demo/index.html
+       dest: /var/www/html/
+       mode: '0644'
+       
+

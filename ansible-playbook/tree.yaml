@@ -1,0 +1,7 @@
+---
+ - hosts: webservers
+   tasks: 
+ - name: install tree package
+     yum: 
+       name: tree
+       state: latest

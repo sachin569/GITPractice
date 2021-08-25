@@ -1,0 +1,7 @@
+---
+ - hosts: webservers
+   tasks:
+   - name: Install Git
+     yum:
+      name: git
+      state: latest

@@ -1,0 +1,12 @@
+---
+- hosts: webservers
+  tasks:
+ - name: install net-tools, bind-tools , stat on servers
+   name: install packages
+   packages: 
+     name: "{{ item}}"
+     state: present
+   loop:
+    - net-tools
+    - bind-utils
+    - sysstat

@@ -1,0 +1,11 @@
+---
+ - hosts: webservers
+   tasks: 
+    - name: creating a file with content 
+      copy: 
+        dest: "/tmp/file.txt"
+        content: |
+          This is Pooja from ECI
+          This is Sham From ECI
+
+

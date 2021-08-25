@@ -1,0 +1,16 @@
+---
+ - hosts: webservers
+   become: true
+   tasks:
+   - name: installing required yum utils 
+     yum:
+      name: yum-utils
+      state: present 
+   - name: configuring terraform repo
+     shell: yum-config-manager --add-repo=https://rpm.releases.hashicorp.com/RHEL/hashicorp.repo
+     args:
+      creates: /etc/yum.repos.d/terraform.repo
+   - name: installing terraform
+     yum: 
+      name: terraform
+      state: present

@@ -1,0 +1,11 @@
+---
+ - hosts: webservers
+   become: true
+   tasks:
+   - name: ensure we have our won command added to /etc/hostname 
+     ansible.builtin.lineinfile: 
+       path: /etc/hostname
+       regexp: '^# localhost.localdomain'
+       insertafter: '^host1'
+       line: '# localhost.localdomain host1'
+       backup: yes

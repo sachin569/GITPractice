@@ -1,0 +1,14 @@
+---
+ - hosts: webserver
+   tasks:  
+ - name: install git 
+     yum: 
+      name: git
+      state: latest
+      - name: clone a git repo
+          git: 
+            repo: https://github.com/shamshetty
+            dest: /home/centos/repos/
+            clone: yes
+            update: yes
+            

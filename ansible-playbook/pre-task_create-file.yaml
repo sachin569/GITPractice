@@ -1,0 +1,26 @@
+---
+ - hosts: webservers
+   become: true
+
+   pre_tasks:
+     - name: Creating file 
+       file:
+        path: /tmp/info.txt
+        state: touch
+
+   tasks:
+     - name: Adding contents 
+       copy:
+        dest: /tmp/info.txt
+        content: |
+          Added using fact "{{ ansible_nodename }}"
+          current date is "{{ ansible_bios_date }}"
+          IP address is "{{ ansible_default_ipv4.address }}"
+
+   post_tasks:
+     - name: Remove file
+       file: 
+        path: /tmp/info.txt
+        state: absent 
+
+
